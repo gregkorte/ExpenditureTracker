@@ -24,5 +24,17 @@ namespace ExpenditureTracker
         {
             InitializeComponent();
         }
+
+        private void ClickToReceiptForm(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.MessageBox.Show("You're one step closer to knowing where your fucking money is...");
+        }
+
+        private void ClickToReportForm(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        
     }
 }
