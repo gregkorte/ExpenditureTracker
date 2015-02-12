@@ -10,12 +10,12 @@ namespace ExpenditureTracker.Model
     {
         public int ReceiptId { get; set; }
         public int PurchaseTypeId { get; set; }
-        public string PurchaseType { get; set; }
+        public string PurchaseTypeName { get; set; }
 
-        public PurchaseType(int PurchaseTypeId, string PurchaseType)
+        public PurchaseType(int PurchaseTypeId, string PurchaseTypeName)
         {
             this.PurchaseTypeId = PurchaseTypeId;
-            this.PurchaseType = PurchaseType;
+            this.PurchaseTypeName = PurchaseTypeName;
         }
     }
 }
