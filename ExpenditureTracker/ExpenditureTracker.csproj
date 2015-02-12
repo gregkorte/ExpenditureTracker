@@ -54,6 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\PurchaseType.cs" />
+    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\Store.cs" />
+    <Compile Include="Model\Tender.cs" />
+    <Compile Include="ReceiptContext.cs" />
     <Page Include="addReceipt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,6 +109,9 @@
   <ItemGroup>
     <Resource Include="receipt.png" />
     <Resource Include="reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
