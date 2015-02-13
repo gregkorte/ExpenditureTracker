@@ -34,7 +34,7 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAddToDatabase()
+        public void TestAddStoreToDatabase()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new Store(1, "Publix"));
@@ -42,7 +42,7 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAllMethod()
+        public void TestAllStoreMethod()
         {
             repo.Add(new Store(1, "Publix"));
             repo.Add(new Store(2, "Mapco"));
@@ -50,7 +50,7 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestGetCount()
+        public void TestStoreGetCount()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new Store(1, "Publix"));
@@ -67,7 +67,8 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void StoresAreUnique(){
+        public void StoresAreUnique()
+        {
             repo.Clear();
             repo.Add(new Store(1, "Publix"));
             repo.Add(new Store(1, "Publix"));

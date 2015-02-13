@@ -34,7 +34,7 @@ namespace ReceiptRepositoryTest.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAddToDatabase()
+        public void TestAddTenderToDatabase()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new Tender(1, "Cash"));
@@ -42,7 +42,7 @@ namespace ReceiptRepositoryTest.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAllMethod()
+        public void TestAllTenderMethod()
         {
             repo.Add(new Tender(1, "Cash"));
             repo.Add(new Tender(2, "Visa 1"));
@@ -50,7 +50,7 @@ namespace ReceiptRepositoryTest.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestGetCount()
+        public void TestTenderGetCount()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new Tender(1, "Cash"));
@@ -67,7 +67,8 @@ namespace ReceiptRepositoryTest.RepositoryTesting
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ReceiptsAreUnique(){
+        public void TendersAreUnique()
+        {
             repo.Clear();
             repo.Add(new Tender(1, "Cash"));
             repo.Add(new Tender(1, "Cash"));

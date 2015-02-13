@@ -12,6 +12,11 @@ namespace ExpenditureTracker.Model
         public int PurchaseTypeId { get; set; }
         public string PurchaseTypeName { get; set; }
 
+        public PurchaseType()
+        {
+
+        }
+
         public PurchaseType(int PurchaseTypeId, string PurchaseTypeName)
         {
             this.PurchaseTypeId = PurchaseTypeId;

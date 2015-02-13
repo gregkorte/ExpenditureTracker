@@ -31,22 +31,31 @@ namespace ExpenditureTracker.Repository
 
         public int GetCount()
         {
-            throw new NotImplementedException();
+            return _dbContext.PurchaseTypes.Count<PurchaseType>();
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            var a = this.All();
+            _dbContext.PurchaseTypes.RemoveRange(a);
+            _dbContext.SaveChanges();
         }
 
         public void Add(PurchaseType p)
         {
-            throw new NotImplementedException();
+            _dbContext.PurchaseTypes.Add(p);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(PurchaseType p)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<PurchaseType> All()
+        {
+            var qu = from PurchaseType in _dbContext.PurchaseTypes select PurchaseType;
+            return qu.ToList<PurchaseType>();
         }
     }
 }

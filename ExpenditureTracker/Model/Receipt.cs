@@ -13,6 +13,11 @@ namespace ExpenditureTracker.Model
         public double SalesTax { get; set; }
         public double SalesTotal { get; set; }
 
+        public Receipt()
+        {
+
+        }
+
         public Receipt(string Date, double SalesTax, double TotalSales)
         {
             this.Date = Date;

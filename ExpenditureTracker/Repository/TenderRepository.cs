@@ -31,22 +31,31 @@ namespace ExpenditureTracker.Repository
 
         public int GetCount()
         {
-            throw new NotImplementedException();
+            return _dbContext.Tenders.Count<Tender>();
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            var a = this.All();
+            _dbContext.Tenders.RemoveRange(a);
+            _dbContext.SaveChanges();
         }
 
         public void Add(Tender t)
         {
-            throw new NotImplementedException();
+            _dbContext.Tenders.Add(t);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(Tender t)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Tender> All()
+        {
+            var qu = from Tender in _dbContext.Tenders select Tender;
+            return qu.ToList<Tender>();
         }
     }
 }

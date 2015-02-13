@@ -34,7 +34,7 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAddToDatabase()
+        public void TestAddReceiptToDatabase()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new Receipt("12/31/2015", .09, 1.09));
@@ -42,7 +42,7 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAllMethod()
+        public void TestAllReceiptMethod()
         {
             repo.Add(new Receipt("12/31/2015", .09, 1.09));
             repo.Add(new Receipt("01/08/2015", .18, 2.18));
@@ -50,7 +50,7 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestGetCount()
+        public void TestReceiptGetCount()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new Receipt("12/31/2015", .09, 1.09));
@@ -67,7 +67,8 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ReceiptsAreUnique(){
+        public void ReceiptsAreUnique()
+        {
             repo.Clear();
             repo.Add(new Receipt("12/31/2015", .09, 1.09));
             repo.Add(new Receipt("12/31/2015", .09, 1.09));

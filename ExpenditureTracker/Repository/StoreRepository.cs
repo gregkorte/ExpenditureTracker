@@ -31,22 +31,36 @@ namespace ExpenditureTracker.Repository
 
         public int GetCount()
         {
-            throw new NotImplementedException();
+            return _dbContext.Stores.Count<Store>();
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            var a = this.All();
+            _dbContext.Stores.RemoveRange(a);
+            _dbContext.SaveChanges();
         }
 
         public void Add(Store s)
         {
-            throw new NotImplementedException();
+            _dbContext.Stores.Add(s);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(Store s)
         {
             throw new NotImplementedException();
+        }
+
+        public IEnumerable<Store> All()
+        {
+            var qu = from Store in _dbContext.Stores select Store;
+            return qu.ToList<Store>();
+        }
+
+        public void StoresAreUnique()
+        {
+            throw new ArgumentException();
         }
     }
 }

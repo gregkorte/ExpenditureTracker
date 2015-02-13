@@ -34,7 +34,7 @@ namespace ReceiptRepositoryTest.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAddToDatabase()
+        public void TestAddPurchaseTypeToDatabase()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new PurchaseType(1, "Groceries"));
@@ -42,7 +42,7 @@ namespace ReceiptRepositoryTest.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestAllMethod()
+        public void TestAllPurchaseTypeMethod()
         {
             repo.Add(new PurchaseType(1, "Groceries"));
             repo.Add(new PurchaseType(2, "Fuel"));
@@ -50,7 +50,7 @@ namespace ReceiptRepositoryTest.RepositoryTesting
         }
 
         [TestMethod]
-        public void TestGetCount()
+        public void TestPurchaseTypeGetCount()
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new PurchaseType(1, "Groceries"));
@@ -67,7 +67,8 @@ namespace ReceiptRepositoryTest.RepositoryTesting
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ReceiptsAreUnique(){
+        public void PurchaseTypesAreUnique()
+        {
             repo.Clear();
             repo.Add(new PurchaseType(1, "Groceries"));
             repo.Add(new PurchaseType(1, "Groceries"));
