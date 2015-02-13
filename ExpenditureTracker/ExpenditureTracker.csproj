@@ -67,6 +67,14 @@
     <Compile Include="Model\Store.cs" />
     <Compile Include="Model\Tender.cs" />
     <Compile Include="ReceiptContext.cs" />
+    <Compile Include="Repository\IPurchaseTypeRepository.cs" />
+    <Compile Include="Repository\IReceiptRepository.cs" />
+    <Compile Include="Repository\IStoreRepository.cs" />
+    <Compile Include="Repository\ITenderRepository.cs" />
+    <Compile Include="Repository\PurchaseTypeRepository.cs" />
+    <Compile Include="Repository\ReceiptRepository.cs" />
+    <Compile Include="Repository\StoreRepository.cs" />
+    <Compile Include="Repository\TenderRepository.cs" />
     <Page Include="addReceipt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,9 +127,7 @@
     <Resource Include="receipt.png" />
     <Resource Include="reports.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repository\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

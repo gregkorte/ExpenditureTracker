@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
+using ExpenditureTracker.Model;
+using ExpenditureTracker.Repository;
+using ExpenditureTracker;
 
 namespace ExpenditureTracker
 {
@@ -20,9 +25,11 @@ namespace ExpenditureTracker
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void ClickToReceiptForm(object sender, RoutedEventArgs e)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpenditureTracker.Model
 {
-    class PurchaseType
+    public class PurchaseType
     {
         public int ReceiptId { get; set; }
         public int PurchaseTypeId { get; set; }
