@@ -57,10 +57,5 @@ namespace ExpenditureTracker.Repository
             var qu = from Store in _dbContext.Stores select Store;
             return qu.ToList<Store>();
         }
-
-        public void StoresAreUnique()
-        {
-            throw new ArgumentException();
-        }
     }
 }
