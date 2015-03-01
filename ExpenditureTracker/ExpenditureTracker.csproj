@@ -62,19 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\PurchaseType.cs" />
     <Compile Include="Model\Receipt.cs" />
-    <Compile Include="Model\Store.cs" />
-    <Compile Include="Model\Tender.cs" />
     <Compile Include="ReceiptContext.cs" />
-    <Compile Include="Repository\IPurchaseTypeRepository.cs" />
     <Compile Include="Repository\IReceiptRepository.cs" />
-    <Compile Include="Repository\IStoreRepository.cs" />
-    <Compile Include="Repository\ITenderRepository.cs" />
-    <Compile Include="Repository\PurchaseTypeRepository.cs" />
     <Compile Include="Repository\ReceiptRepository.cs" />
-    <Compile Include="Repository\StoreRepository.cs" />
-    <Compile Include="Repository\TenderRepository.cs" />
     <Page Include="addReceipt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -124,8 +115,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="receipt.png" />
-    <Resource Include="reports.png" />
+    <Resource Include="images\receipt.png" />
+    <Resource Include="images\reports.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -54,6 +54,14 @@
     <Reference Include="TestStack.White">
       <HintPath>..\packages\TestStack.White.0.13.3\lib\net40\TestStack.White.dll</HintPath>
     </Reference>
+    <Reference Include="TestStack.White.Reporting">
+      <HintPath>..\packages\TestStack.White.ScreenObjects.0.13.3\lib\net40\TestStack.White.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="TestStack.White.ScreenObjects">
+      <HintPath>..\packages\TestStack.White.ScreenObjects.0.13.3\lib\net40\TestStack.White.ScreenObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -68,15 +76,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="RepositoryTesting\PurchaseTypeRepositoryTest.cs" />
     <Compile Include="RepositoryTesting\ReceiptRepositoryTest.cs" />
-    <Compile Include="RepositoryTesting\StoreRepositoryTest.cs" />
-    <Compile Include="RepositoryTesting\TenderRepositoryTest.cs" />
-    <Compile Include="UnitTesting\PurchaseTypeModelTest.cs" />
+    <Compile Include="UnitTesting\AddReceiptTesting.cs" />
     <Compile Include="UnitTesting\ReceiptModelTest.cs" />
-    <Compile Include="UnitTesting\StoreModelTest.cs" />
-    <Compile Include="UnitTesting\TenderModelTest.cs" />
+    <Compile Include="UnitTesting\StartMenuTest.cs" />
     <Compile Include="UnitTesting\TestHelper.cs" />
+    <Compile Include="UnitTesting\ReceiptTest.cs" />
     <Compile Include="UserStories\UserStories.cs" />
     <Compile Include="UserStories\ZeroState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -33,45 +33,45 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
             repo.Clear();
         }
 
-        [TestMethod]
-        public void TestAddReceiptToDatabase()
-        {
-            Assert.AreEqual(0, repo.GetCount());
-            repo.Add(new Receipt("12/31/2015", .09, 1.09));
-            Assert.AreEqual(1, repo.GetCount());
-        }
+        //[TestMethod]
+        //public void TestAddReceiptToDatabase()
+        //{
+        //    Assert.AreEqual(0, repo.GetCount());
+        //    repo.Add(new Receipt("12/31/2015", .09, 1.09));
+        //    Assert.AreEqual(1, repo.GetCount());
+        //}
 
-        [TestMethod]
-        public void TestAllReceiptMethod()
-        {
-            repo.Add(new Receipt("12/31/2015", .09, 1.09));
-            repo.Add(new Receipt("01/08/2015", .18, 2.18));
-            Assert.AreEqual(2, repo.GetCount());
-        }
+        //[TestMethod]
+        //public void TestAllReceiptMethod()
+        //{
+        //    repo.Add(new Receipt("12/31/2015", .09, 1.09));
+        //    repo.Add(new Receipt("01/08/2015", .18, 2.18));
+        //    Assert.AreEqual(2, repo.GetCount());
+        //}
 
-        [TestMethod]
-        public void TestReceiptGetCount()
-        {
-            Assert.AreEqual(0, repo.GetCount());
-            repo.Add(new Receipt("12/31/2015", .09, 1.09));
-            Assert.AreEqual(1, repo.GetCount());
-        }
+        //[TestMethod]
+        //public void TestReceiptGetCount()
+        //{
+        //    Assert.AreEqual(0, repo.GetCount());
+        //    repo.Add(new Receipt("12/31/2015", .09, 1.09));
+        //    Assert.AreEqual(1, repo.GetCount());
+        //}
 
-        [TestMethod]
-        public void TestClear()
-        {
-            repo.Add(new Receipt("12/31/2015", .09, 1.09));
-            repo.Clear();
-            Assert.AreEqual(0, repo.GetCount());
-        }
+        //[TestMethod]
+        //public void TestClear()
+        //{
+        //    repo.Add(new Receipt("12/31/2015", .09, 1.09));
+        //    repo.Clear();
+        //    Assert.AreEqual(0, repo.GetCount());
+        //}
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void ReceiptsAreUnique()
-        {
-            repo.Clear();
-            repo.Add(new Receipt("12/31/2015", .09, 1.09));
-            repo.Add(new Receipt("12/31/2015", .09, 1.09));
-        }
+        //[TestMethod]
+        //[ExpectedException(typeof(ArgumentException))]
+        //public void ReceiptsAreUnique()
+        //{
+        //    repo.Clear();
+        //    repo.Add(new Receipt("12/31/2015", .09, 1.09));
+        //    repo.Add(new Receipt("12/31/2015", .09, 1.09));
+        //}
     }
 }

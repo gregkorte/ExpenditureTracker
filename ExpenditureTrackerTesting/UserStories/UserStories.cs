@@ -24,7 +24,7 @@ namespace ExpenditureTrackerTesting
             var applicationDir = _context.DeploymentDirectory;
             var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\ExpenditureTracker\\bin\\Debug\\ExpenditureTracker");
             application = Application.Launch(applicationPath);
-            window = application.GetWindow("Expenditure Tracker", InitializeOption.NoCache);
+            window = application.GetWindow("MainWindow", InitializeOption.NoCache);
             receipt_button = window.Get<Button>("ButtonToReceiptForm");
             report_button = window.Get<Button>("ButtonToReportForm");
         }
@@ -45,11 +45,11 @@ namespace ExpenditureTrackerTesting
             Assert.IsFalse(window.IsFocussed);
         }
 
-        [TestMethod]
-        public void ExecuteUserStories()
-        {
-            this.BDDfy();
-        }
+        //[TestMethod]
+        //public void ExecuteUserStories()
+        //{
+        //    this.BDDfy();
+        //}
 
         [ClassCleanup]
         public static void CleanUp()

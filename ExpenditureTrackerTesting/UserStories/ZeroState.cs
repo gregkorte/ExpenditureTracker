@@ -24,18 +24,18 @@ namespace ExpenditureTrackerTesting
             var applicationDir = _context.DeploymentDirectory;
             var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\ExpenditureTracker\\bin\\Debug\\ExpenditureTracker");
             application = Application.Launch(applicationPath);
-            window = application.GetWindow("Expenditure Tracker", InitializeOption.NoCache);
-            receipt_button = window.Get<Button>("ButtonToReceiptForm");
-            report_button = window.Get<Button>("ButtonToReportForm");
+            window = application.GetWindow("MainWindow", InitializeOption.NoCache);
+            receipt_button = window.Get<Button>("StartMenuButtonReceiptForm");
+            report_button = window.Get<Button>("StartMenuButtonReportForm");
         }
 
         [TestMethod]
         public void TestZeroState()
         {
-            //Button receipt_button = window.Get<Button>("ButtonToReceiptForm");
-            //Button report_button = window.Get<Button>("ButtonToReportForm");
-            Assert.IsTrue(receipt_button.Enabled);
-            Assert.IsTrue(report_button.Enabled);
+            Button addReceipt_button = window.Get<Button>("StartMenuButtonReceiptForm");
+            Button addReport_button = window.Get<Button>("StartMenuButtonReportForm");
+            Assert.IsTrue(addReceipt_button.Enabled);
+            Assert.IsTrue(addReport_button.Enabled);
         }
 
         [ClassCleanup]

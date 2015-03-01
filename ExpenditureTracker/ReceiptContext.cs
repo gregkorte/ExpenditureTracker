@@ -11,8 +11,5 @@ namespace ExpenditureTracker
     public class ReceiptContext: DbContext
     {
         public DbSet<Receipt> Receipts { get; set; }
-        public DbSet<PurchaseType> PurchaseTypes { get; set; }
-        public DbSet<Store> Stores { get; set; }
-        public DbSet<Tender> Tenders { get; set; }
     }
 }
