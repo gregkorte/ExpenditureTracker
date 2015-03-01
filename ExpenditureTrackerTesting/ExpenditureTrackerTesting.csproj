@@ -77,11 +77,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="RepositoryTesting\ReceiptRepositoryTest.cs" />
-    <Compile Include="UnitTesting\AddReceiptTesting.cs" />
-    <Compile Include="UnitTesting\ReceiptModelTest.cs" />
+    <Compile Include="UnitTesting\AddReceiptTest.cs" />
+    <Compile Include="UnitTesting\AddReportTest.cs" />
     <Compile Include="UnitTesting\StartMenuTest.cs" />
     <Compile Include="UnitTesting\TestHelper.cs" />
     <Compile Include="UnitTesting\ReceiptTest.cs" />
+    <Compile Include="UnitTesting\ViewReceiptListTest.cs" />
+    <Compile Include="UnitTesting\ViewReport.cs" />
     <Compile Include="UserStories\UserStories.cs" />
     <Compile Include="UserStories\ZeroState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

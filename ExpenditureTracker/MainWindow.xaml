@@ -19,7 +19,7 @@
         <StackPanel Name="StartMenu" Visibility="Visible" Height="Auto" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10" VerticalAlignment="Center">
             <StackPanel Name="StartMenuLeft" Orientation="Vertical" Margin="10">
                 <Label Content="Add/Edit Receipt" HorizontalAlignment="Center" FontSize="24" Foreground="White"/>
-                <Button x:Name="StartMenuButtonReceiptForm" Click="StartMenuButtonReceiptForm_Click" Width="240" Height="240" BorderThickness="1">
+                <Button x:Name="StartMenuButtonReceiptForm" Click="StartMenuButtonReceiptForm_Click" Width="240" Height="240" BorderThickness="1" Cursor="Hand">
                     <Button.Background>
                         <ImageBrush ImageSource="/images/receipt.png"></ImageBrush>
                     </Button.Background>
@@ -27,7 +27,7 @@
             </StackPanel>
             <StackPanel Name="StartMenuRight" Orientation="Vertical" Margin="10">
             <Label Content="Create Report" HorizontalAlignment="Center" FontSize="24" Foreground="White"/>
-            <Button x:Name="StartMenuButtonReportForm" Click="StartMenuButtonReportForm_Click" Width="240" Height="240" BorderThickness="1">
+                <Button x:Name="StartMenuButtonReportForm" Click="StartMenuButtonReportForm_Click" Width="240" Height="240" BorderThickness="1" Cursor="Hand">
                 <Button.Background>
                     <ImageBrush ImageSource="/images/reports.png"></ImageBrush>
                 </Button.Background>
@@ -53,20 +53,20 @@
             
                 <!--BEGIN Column 2-->
                 <StackPanel Name="FormInputs" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" Margin="5">
-                    <DatePicker Name="AddReceiptInputDate" Width="200" Grid.Row="3" Margin="5"></DatePicker>
-                    <TextBox Name="AddReceiptInputStoreName" Width="200" Grid.Row="4" Margin="5"></TextBox>
-                    <TextBox Name="AddReceiptInputPurchaseType" Width="200" Grid.Row="5" Margin="5"></TextBox>
-                    <TextBox Name="AddReceiptInputSalesTax" Width="200" Grid.Row="6" Margin="5"></TextBox>
-                    <TextBox Name="AddReceiptInputSalesTotal" Width="200" Grid.Row="7" Margin="5"></TextBox>
-                    <TextBox Name="AddReceiptInputTenderType" Width="200" Grid.Row="8" Margin="5"></TextBox>
+                    <DatePicker Name="AddReceiptInputDate" Width="200" Grid.Row="3" Margin="5" />
+                    <TextBox Name="AddReceiptInputStoreName" Width="200" Grid.Row="4" Margin="5" />
+                    <TextBox Name="AddReceiptInputPurchaseType" Width="200" Grid.Row="5" Margin="5" />
+                    <TextBox Name="AddReceiptInputSalesTax" Width="200" Grid.Row="6" Margin="5" />
+                    <TextBox Name="AddReceiptInputSalesTotal" Width="200" Grid.Row="7" Margin="5" />
+                    <TextBox Name="AddReceiptInputTenderType" Width="200" Grid.Row="8" Margin="5" />
                 </StackPanel>
                 <!--END Column 2-->
                 
             </StackPanel>
             <StackPanel Name="AddReceiptButtons" Grid.Row="10" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Name="AddReceiptBackButton" Click="AddReceiptBackButton_Click" Width="80" Height="30" Content="Back" Margin="10"></Button>
-                <Button Name="AddReceiptResettButton" Click="AddReceiptResetButton_Click" Width="80" Height="30" Content="Reset" Margin="10"></Button>
-                <Button Name="AddReceiptSubmitButton" Click="AddReceiptSubmitButton_Click" Width="80" Height="30" Content="Add Receipt" Margin="10"></Button>
+                <Button Name="AddReceiptBackButton" Click="AddReceiptBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
+                <Button Name="AddReceiptResettButton" Click="AddReceiptResetButton_Click" Width="80" Height="30" Content="Reset" Margin="10" Cursor="Hand" />
+                <Button Name="AddReceiptSubmitButton" Click="AddReceiptSubmitButton_Click" Width="80" Height="30" Content="Add Receipt" Margin="10" Cursor="Hand" />
             </StackPanel>
         </StackPanel>
         <!--END >> AddReceipt-->
@@ -78,32 +78,45 @@
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center" Width="500" Orientation="Horizontal">
                             <Label Name="dateLabel">Date: </Label>
-                            <TextBlock Text="{Binding Date, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></TextBlock>
+                            <TextBlock Text="{Binding Date, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
                             <Label Name="storeName">Store Name: </Label>
-                            <TextBlock Text="{Binding StoreName, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></TextBlock>
-                            <TextBlock Text="{Binding PurchaseType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></TextBlock>
+                            <TextBlock Text="{Binding StoreName, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <TextBlock Text="{Binding PurchaseType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
                             <Label Name="salesTaxLabel">Sales Tax: </Label>
-                            <TextBlock Text="{Binding SalesTax, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></TextBlock>
+                            <TextBlock Text="{Binding SalesTax, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
                             <Label Name="salesTotalLabel">Sales Total: </Label>
-                            <TextBlock Text="{Binding SalesTotal, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></TextBlock>
-                            <TextBlock Text="{Binding TenderType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}"></TextBlock>
+                            <TextBlock Text="{Binding SalesTotal, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <TextBlock Text="{Binding TenderType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            <StackPanel Name="ViewReceiptListButtons" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Name="ViewReceiptListBackButton" Click="ViewReceiptListBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
+            </StackPanel>
         </StackPanel>
         <!--END >> ViewReceiptList-->
         
-        <!--BEGIN >> ReportForm-->
-        <StackPanel Visibility="Collapsed" Name="ReportForm">
-            <Label Name="test2" Foreground="White">This will be a report form.</Label>
-            <Button Name="ReportFormSubmitButton" Click="ReportFormSubmitButton_Click" HorizontalAlignment="Left" Content="Get Report" VerticalAlignment="Top" Width="240" Height="240" BorderThickness="1" Opacity="0.5"></Button>
+        <!--BEGIN >> AddReport-->
+        <StackPanel Visibility="Collapsed" Name="AddReport">
+            <StackPanel Name="ReportForm">
+                <Label Name="test2" Foreground="White">This will be a report form.</Label>
+            </StackPanel>
+            <StackPanel Name="ReportButtons" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Name="AddReportBackButton" Click="AddReportBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
+                <Button Name="AddReportSubmitButton" Click="AddReportSubmitButton_Click" Width="80" Height="30" Content="Get Report" Margin="10" Cursor="Hand" />
+            </StackPanel>
         </StackPanel>
-        <!--END >> ReportForm-->
+        <!--END >> AddReport-->
         
         <!--BEGIN >> ViewReport-->
         <StackPanel Visibility="Collapsed" Name="ViewReport">
-            <Label Name="test3" Foreground="White">This will be a report.</Label>
+            <StackPanel Name="Report">
+                <Label Name="test3" Foreground="White">This will be a report.</Label>
+            </StackPanel>
+            <StackPanel Name="ViewReportButtons" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Name="ViewReportBackButton" Click="ViewReportBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
+            </StackPanel>
         </StackPanel>
         <!--END >> ViewReport-->
         

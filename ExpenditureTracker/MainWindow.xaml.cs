@@ -42,7 +42,7 @@ namespace ExpenditureTracker
 
         private void StartMenuButtonReportForm_Click(object sender, RoutedEventArgs e)
         {
-            ReportForm.Visibility = Visibility.Visible;
+            AddReport.Visibility = Visibility.Visible;
             StartMenu.Visibility = Visibility.Hidden;
         }
         //END >> StartMenu events//
@@ -56,7 +56,7 @@ namespace ExpenditureTracker
 
         private void AddReceiptResetButton_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void AddReceiptSubmitButton_Click(object sender, RoutedEventArgs e)
@@ -72,13 +72,42 @@ namespace ExpenditureTracker
             double salestotal = Convert.ToDouble(AddReceiptInputSalesTotal.Text);
             receiptRepo.Add(new Receipt(date, AddReceiptInputStoreName.Text, AddReceiptInputPurchaseType.Text, salestax, salestotal, AddReceiptInputTenderType.Text));
         }
+        //END >> AddReceipt events//
 
-        private void ReportFormSubmitButton_Click(object sender, RoutedEventArgs e)
+        //BEGIN >> ReceiptList events//
+        private void ViewReceiptListBackButton_Click(object sender, RoutedEventArgs e)
         {
             StartMenu.Visibility = Visibility.Hidden;
-            ReportForm.Visibility = Visibility.Hidden;
+            AddReceipt.Visibility = Visibility.Visible;
+            ViewReceiptList.Visibility = Visibility.Hidden;
+        }
+
+        //END >> ReceiptList events//
+
+        //BEGIN >> AddReport events//
+        private void AddReportSubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartMenu.Visibility = Visibility.Hidden;
+            AddReport.Visibility = Visibility.Hidden;
             ViewReport.Visibility = Visibility.Visible;
         }
-        //END >> AddReceipt events//
+
+        private void AddReportBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartMenu.Visibility = Visibility.Visible;
+            AddReport.Visibility = Visibility.Hidden;
+            ViewReport.Visibility = Visibility.Hidden;
+        }
+
+        //END >> AddReport events//
+
+        //BEGIN >> ViewReport events//
+        private void ViewReportBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartMenu.Visibility = Visibility.Hidden;
+            AddReport.Visibility = Visibility.Visible;
+            ViewReport.Visibility = Visibility.Hidden;
+        }
+        //END >> ViewReport events//
     }
 }

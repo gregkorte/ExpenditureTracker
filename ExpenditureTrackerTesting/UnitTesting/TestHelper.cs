@@ -66,7 +66,7 @@ namespace ExpenditureTrackerTesting
             button.Click();
         }
 
-        public void ThenIShouldSeeReportForm()
+        public void ThenIShouldSeeAddReportForm()
         {
             Label test2 = window.Get<Label>("test2");
             Assert.IsTrue(test2.Visible);
@@ -88,7 +88,43 @@ namespace ExpenditureTrackerTesting
             Assert.IsTrue(addReport_button.Enabled);
         }
 
-        public void WhenIClickAddReceiptSubmitButton()
+        public void WhenISelectADate(DateTime newDate)
+        {
+            DateTimePicker picker = window.Get<DateTimePicker>(SearchCriteria.ByAutomationId("AddReceiptInputDate"));
+            picker.SetValue(newDate);
+        }
+
+        public void AndIInputAStoreName(string value)
+        {
+            var textBox = window.Get<TextBox>("AddReceiptInputStoreName");
+            textBox.SetValue(value);
+        }
+
+        public void AndIInputAPurchaseType(string value)
+        {
+            var textBox = window.Get<TextBox>("AddReceiptInputPurchaseType");
+            textBox.SetValue(value);
+        }
+
+        public void AndIInputSalesTax(double value)
+        {
+            var textBox = window.Get<TextBox>("AddReceiptInputSalesTax");
+            textBox.SetValue(value);
+        }
+
+        public void AndIInputSalesTotal(double value)
+        {
+            var textBox = window.Get<TextBox>("AddReceiptInputSalesTotal");
+            textBox.SetValue(value);
+        }
+
+        public void AndIInputATenderType(string value)
+        {
+            var textBox = window.Get<TextBox>("AddReceiptInputTenderType");
+            textBox.SetValue(value);
+        }
+
+        public void AndIClickAddReceiptSubmitButton()
         {
             Button button = window.Get<Button>(SearchCriteria.ByAutomationId("AddReceiptSubmitButton"));
             button.Click();
@@ -101,12 +137,67 @@ namespace ExpenditureTrackerTesting
         }
         //END >> AddReceipt//
 
+        //BEGIN >> ReceiptList//
+        public void WhenIClickViewReceiptListBackButton()
+        {
+            Button button = window.Get<Button>(SearchCriteria.ByAutomationId("ViewReceiptListBackButton"));
+            button.Click();
+        }
+
+        //END >> ReceiptList//
+
+        //BEGIN >> AddReport//
+        public void WhenIClickAddReportBackButton()
+        {
+            Button button = window.Get<Button>(SearchCriteria.ByAutomationId("AddReportBackButton"));
+            button.Click();
+        }
+
+        public void WhenIClickAddReportSubmitButton()
+        {
+            Button button = window.Get<Button>(SearchCriteria.ByAutomationId("AddReportSubmitButton"));
+            button.Click();
+        }
+
+        public void ThenIShouldSeeViewReport()
+        {
+            Label test3 = window.Get<Label>("test3");
+            Assert.IsTrue(test3.Visible);
+        }
+
+        //END >> AddReport//
+
+        //BEGIN >> ViewReport//
+        public void WhenIClickViewReportBackButton()
+        {
+            Button button = window.Get<Button>(SearchCriteria.ByAutomationId("ViewReportBackButton"));
+            button.Click();
+        }
+
+        
+
+        //END >> ViewReport//
+
 
         public void GetReceiptDate(DateTime newDate)
         {
             var date = window.Get<DateTimePicker>("AddReceiptInputDate");
             date.Date = newDate;
             Assert.AreEqual(newDate, date.Date);
+        }
+
+        public void GetReceiptStoreName(string storeName)
+        {
+            var store = window.Get<TextBox>("AddReceiptInputStoreName");
+            store.Text = storeName;
+            Assert.AreEqual(storeName, store.Text);
+        }
+
+        public void GetReceiptPurchaseType(string purchaseType)
+        {
+            var purchasetype = window.Get<TextBox>("AddReceiptInputPurchaseType");
+            purchasetype.Text = purchaseType;
+            Assert.AreEqual(purchaseType, purchasetype.Text);
         }
 
         public void GetReceiptSalesTax(string salesTax)
@@ -123,30 +214,14 @@ namespace ExpenditureTrackerTesting
             Assert.AreEqual(salesTotal, total.Text);
         }
 
-        //public void GetReceiptStore(string storeName)
-        //{
-        //    var store = window.Get<ComboBox>("AddReceiptInputStoreName");
-        //    store. = storeName;
-        //    Assert.AreEqual(storeName, store.);
-        //}
-
-        public void IShouldSeeReceiptList()
+        public void GetReceiptTenderType(string tenderType)
         {
-            Label test = window.Get<Label>("test");
-            Assert.IsTrue(test.Visible);
+            var tendertype = window.Get<TextBox>("AddReceiptInputTenderType");
+            tendertype.Text = tenderType;
+            Assert.AreEqual(tenderType, tendertype.Text);
         }
 
-        public void ReportClick()
-        {
-            Button button = window.Get<Button>(SearchCriteria.ByAutomationId("ButtonToSubmitReport"));
-            button.Click();
-        }
-
-        public void IShouldSeeReport()
-        {
-            Label test3 = window.Get<Label>("test3");
-            Assert.IsTrue(test3.Visible);
-        }
+        
 
         //public void AndIShouldSeeTheHelperText()
         //{
@@ -249,17 +324,17 @@ namespace ExpenditureTrackerTesting
         //    Assert.AreEqual(0, repo.GetCount());
         //}
 
-        //public static void GivenTheseReceipts(params Receipt[] Receipts)
-        //{
-        //    foreach (Receipt evnt in Receipts)
-        //    {
-        //        // Add Receipt to Receipts here.
-        //        repo.Add(evnt);
-        //    }
+        public static void GivenTheseReceipts(params Receipt[] Receipts)
+        {
+            foreach (Receipt evnt in Receipts)
+            {
+                // Add Receipt to Receipts here.
+                repo.Add(evnt);
+            }
 
-        //    //context.SaveChanges();
-        //    Assert.AreEqual(Receipts.Length, repo.GetCount());
-        //}
+            //context.SaveChanges();
+            Assert.AreEqual(Receipts.Length, repo.GetCount());
+        }
 
         public static void CleanThisUp()
         {

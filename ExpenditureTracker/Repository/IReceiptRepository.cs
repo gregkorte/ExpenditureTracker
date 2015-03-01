@@ -14,9 +14,9 @@ namespace ExpenditureTracker.Repository
         void Add(Receipt r); //
         void Delete(Receipt r); //
         void Clear(); //
+        //IEnumerable<Event> All(); //
         //IEnumerable<Event> PastEvents(); //
         //int CalculateMonth(Event E); //
-        //IEnumerable<Event> All(); //
         //Event GetById(int id); //
         //Event GetByDate(string date); //
         //IQueryable<Event> SearchFor(Expression<Func<Event, bool>> predicate);

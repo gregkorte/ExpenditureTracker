@@ -6,7 +6,7 @@ using ExpenditureTracker.Model;
 namespace ExpenditureTrackerTesting
 {
     [TestClass]
-    public class StartMenuTest : TestHelper
+    public class AddReceiptTest : TestHelper
     {
 
         [ClassInitialize]
@@ -29,17 +29,27 @@ namespace ExpenditureTrackerTesting
 
         //BEGIN >> Button click Testing//
         [TestMethod]
-        public void StartMenuAddReceiptButtonClickTest()
+        public void AddReceiptBackButtonClickTest()
         {
             WhenIClickAddReceiptButton();
             ThenIShouldSeeAddReceiptForm();
+            WhenIClickAddReceiptBackButton();
+            ThenIShouldSeeStartMenu();
         }
 
         [TestMethod]
-        public void StartMenuReportButtonClickTest()
+        public void AddReceiptSubmitButtonClickTest()
         {
-            WhenIClickAddReportButton();
-            ThenIShouldSeeAddReportForm();
+            WhenIClickAddReceiptButton();
+            ThenIShouldSeeAddReceiptForm();
+            WhenISelectADate(new DateTime(2015, 02, 14));
+            AndIInputAStoreName("Publix");
+            AndIInputAPurchaseType("Groceries");
+            AndIInputSalesTax(.45);
+            AndIInputSalesTotal(5.45);
+            AndIInputATenderType("Cash");
+            AndIClickAddReceiptSubmitButton();
+            ThenIShouldSeeViewReceiptList();
         }
         //END >> Button click Testing//
     }

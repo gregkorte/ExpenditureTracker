@@ -6,7 +6,7 @@ using ExpenditureTracker.Model;
 namespace ExpenditureTrackerTesting
 {
     [TestClass]
-    public class StartMenuTest : TestHelper
+    public class AddReportTest : TestHelper
     {
 
         [ClassInitialize]
@@ -29,18 +29,23 @@ namespace ExpenditureTrackerTesting
 
         //BEGIN >> Button click Testing//
         [TestMethod]
-        public void StartMenuAddReceiptButtonClickTest()
-        {
-            WhenIClickAddReceiptButton();
-            ThenIShouldSeeAddReceiptForm();
-        }
-
-        [TestMethod]
-        public void StartMenuReportButtonClickTest()
+        public void AddReportBackButtonClickTest()
         {
             WhenIClickAddReportButton();
             ThenIShouldSeeAddReportForm();
+            WhenIClickAddReportBackButton();
+            ThenIShouldSeeStartMenu();
         }
+
+        [TestMethod]
+        public void AddReportSubmitButtonClickTest()
+        {
+            WhenIClickAddReportButton();
+            ThenIShouldSeeAddReportForm();
+            WhenIClickAddReportSubmitButton();
+            ThenIShouldSeeViewReport();
+        }
+        
         //END >> Button click Testing//
     }
 }
