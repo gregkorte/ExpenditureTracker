@@ -65,7 +65,7 @@
             </StackPanel>
             <StackPanel Name="AddReceiptButtons" Grid.Row="10" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Name="AddReceiptBackButton" Click="AddReceiptBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
-                <Button Name="AddReceiptResettButton" Click="AddReceiptResetButton_Click" Width="80" Height="30" Content="Reset" Margin="10" Cursor="Hand" />
+                <!--<Button Name="AddReceiptResettButton" Click="AddReceiptResetButton_Click" Width="80" Height="30" Content="Reset" Margin="10" Cursor="Hand" />-->
                 <Button Name="AddReceiptSubmitButton" Click="AddReceiptSubmitButton_Click" Width="80" Height="30" Content="Add Receipt" Margin="10" Cursor="Hand" />
             </StackPanel>
         </StackPanel>
