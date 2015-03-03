@@ -54,9 +54,21 @@ namespace ExpenditureTracker
             AddReceipt.Visibility = Visibility.Hidden;
         }
 
+        private void AddReceiptGoToListButton_Click(object sender, RoutedEventArgs e)
+        {
+            StartMenu.Visibility = Visibility.Hidden;
+            AddReceipt.Visibility = Visibility.Hidden;
+            ViewReceiptList.Visibility = Visibility.Visible;
+        }
+
         private void AddReceiptResetButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            AddReceiptInputDate.SelectedDate = null;
+            AddReceiptInputStoreName.Text = String.Empty;
+            AddReceiptInputPurchaseType.Text = String.Empty;
+            AddReceiptInputSalesTax.Text = String.Empty;
+            AddReceiptInputSalesTotal.Text = String.Empty;
+            AddReceiptInputTenderType.Text = String.Empty;
         }
 
         private void AddReceiptSubmitButton_Click(object sender, RoutedEventArgs e)
@@ -71,6 +83,12 @@ namespace ExpenditureTracker
             double salestax = Convert.ToDouble(AddReceiptInputSalesTax.Text);
             double salestotal = Convert.ToDouble(AddReceiptInputSalesTotal.Text);
             receiptRepo.Add(new Receipt(date, AddReceiptInputStoreName.Text, AddReceiptInputPurchaseType.Text, salestax, salestotal, AddReceiptInputTenderType.Text));
+            AddReceiptInputDate.SelectedDate = null;
+            AddReceiptInputStoreName.Text = String.Empty;
+            AddReceiptInputPurchaseType.Text = String.Empty;
+            AddReceiptInputSalesTax.Text = String.Empty;
+            AddReceiptInputSalesTotal.Text = String.Empty;
+            AddReceiptInputTenderType.Text = String.Empty;
         }
         //END >> AddReceipt events//
 
@@ -80,6 +98,17 @@ namespace ExpenditureTracker
             StartMenu.Visibility = Visibility.Hidden;
             AddReceipt.Visibility = Visibility.Visible;
             ViewReceiptList.Visibility = Visibility.Hidden;
+        }
+
+        private void SelectViewReceiptListListBoxItem_Click(object sender, RoutedEventArgs e)
+        {
+            ViewReceiptListDeleteButton.Visibility = Visibility.Visible;
+        }
+
+        private void ViewReceiptListDeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedReceipt = ListOfReceipts.SelectedItem as Receipt;
+            receiptRepo.Delete(selectedReceipt);
         }
 
         //END >> ReceiptList events//

@@ -37,7 +37,7 @@ namespace ExpenditureTrackerTesting
             context = repo.Context();
         }
 
-        //BEGIN >> StartMenu//
+    //BEGIN >> StartMenu//
         public void WhenIClickAddReceiptButton()
         {
             Button button = window.Get<Button>(SearchCriteria.ByAutomationId("StartMenuButtonReceiptForm"));
@@ -71,9 +71,10 @@ namespace ExpenditureTrackerTesting
             Label test2 = window.Get<Label>("test2");
             Assert.IsTrue(test2.Visible);
         }
-        //END >> StartMenu//
+    //END >> StartMenu//
 
-        //BEGIN >> AddReceipt//
+    //BEGIN >> AddReceipt//
+        //BACK Button//
         public void WhenIClickAddReceiptBackButton()
         {
             Button button = window.Get<Button>(SearchCriteria.ByAutomationId("AddReceiptBackButton"));
@@ -88,10 +89,18 @@ namespace ExpenditureTrackerTesting
             Assert.IsTrue(addReport_button.Enabled);
         }
 
+        //GOTOLIST Button//
+        public void WhenIClickAddReceiptGoToListButton()
+        {
+            Button button = window.Get<Button>(SearchCriteria.ByAutomationId("AddReceiptGoToListButton"));
+            button.Click();
+        }
+
+        //SUBMIT Button//
         public void WhenISelectADate(DateTime newDate)
         {
             DateTimePicker picker = window.Get<DateTimePicker>(SearchCriteria.ByAutomationId("AddReceiptInputDate"));
-            picker.SetValue(newDate);
+            picker.Date = newDate;
         }
 
         public void AndIInputAStoreName(string value)
@@ -135,24 +144,48 @@ namespace ExpenditureTrackerTesting
             ListBox listbox = window.Get<ListBox>(SearchCriteria.ByAutomationId("ListOfReceipts"));
             Assert.IsTrue(listbox.Visible);
         }
-        //END >> AddReceipt//
+    //END >> AddReceipt//
 
-        //BEGIN >> ReceiptList//
+    //BEGIN >> ReceiptList//
         public void WhenIClickViewReceiptListBackButton()
         {
             Button button = window.Get<Button>(SearchCriteria.ByAutomationId("ViewReceiptListBackButton"));
             button.Click();
         }
 
-        //END >> ReceiptList//
+        public void WhenISelectListBoxItem()
+        {
+            
+        }
 
-        //BEGIN >> AddReport//
+        public void ThenIShouldSeeViewReceiptListDeleteButton()
+        {
+            Button delete = window.Get<Button>("ViewReceiptListDeleteButton");
+            Assert.IsTrue(delete.Enabled);
+        }
+
+        public void WhenIClickViewReceiptListDeleteButton()
+        {
+            Button button = window.Get<Button>(SearchCriteria.ByAutomationId("ViewReceiptListDeleteButton"));
+            button.Click();
+        }
+
+        public void ThenIShouldNotSeeSelectedListBoxItem()
+        {
+            
+        }
+
+    //END >> ReceiptList//
+
+    //BEGIN >> AddReport//
+        //BACK Button//
         public void WhenIClickAddReportBackButton()
         {
             Button button = window.Get<Button>(SearchCriteria.ByAutomationId("AddReportBackButton"));
             button.Click();
         }
 
+        //SUBMIT Button//
         public void WhenIClickAddReportSubmitButton()
         {
             Button button = window.Get<Button>(SearchCriteria.ByAutomationId("AddReportSubmitButton"));
@@ -165,18 +198,15 @@ namespace ExpenditureTrackerTesting
             Assert.IsTrue(test3.Visible);
         }
 
-        //END >> AddReport//
+    //END >> AddReport//
 
-        //BEGIN >> ViewReport//
+    //BEGIN >> ViewReport//
         public void WhenIClickViewReportBackButton()
         {
             Button button = window.Get<Button>(SearchCriteria.ByAutomationId("ViewReportBackButton"));
             button.Click();
         }
-
-        
-
-        //END >> ViewReport//
+    //END >> ViewReport//
 
 
         public void GetReceiptDate(DateTime newDate)
@@ -220,8 +250,6 @@ namespace ExpenditureTrackerTesting
             tendertype.Text = tenderType;
             Assert.AreEqual(tenderType, tendertype.Text);
         }
-
-        
 
         //public void AndIShouldSeeTheHelperText()
         //{

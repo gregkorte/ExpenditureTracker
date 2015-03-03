@@ -38,6 +38,15 @@ namespace ExpenditureTrackerTesting
         }
 
         [TestMethod]
+        public void AddReceiptGoToListButtonClickTest()
+        {
+            WhenIClickAddReceiptButton();
+            ThenIShouldSeeAddReceiptForm();
+            WhenIClickAddReceiptGoToListButton();
+            ThenIShouldSeeViewReceiptList();
+        }
+
+        [TestMethod]
         public void AddReceiptSubmitButtonClickTest()
         {
             WhenIClickAddReceiptButton();

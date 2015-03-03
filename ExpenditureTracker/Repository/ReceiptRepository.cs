@@ -49,13 +49,35 @@ namespace ExpenditureTracker.Repository
 
         public void Delete(Receipt r)
         {
-            throw new NotImplementedException();
+            _dbContext.Receipts.Remove(r);
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<Receipt> All()
         {
             var qu = from Receipt in _dbContext.Receipts select Receipt;
             return qu.ToList<Receipt>();
+        }
+
+        public int GetId(string Date, string StoreName, string PurchaseType, double SalesTax, double SalesTotal, string TenderType)
+        {
+            var get = from Receipt in _dbContext.Receipts
+                        where (Receipt.Date == Date &&
+                               Receipt.StoreName == StoreName &&
+                               Receipt.PurchaseType == PurchaseType &&
+                               Receipt.SalesTax == SalesTax &&
+                               Receipt.SalesTotal == SalesTotal &&
+                               Receipt.TenderType == TenderType)
+                        select Receipt;
+            return get.First<Model.Receipt>().ReceiptId;
+        }
+
+        public Model.Receipt GetById(int id)
+        {
+            var query = from r in _dbContext.Receipts
+                     where r.ReceiptId == id
+                     select r;
+            return query.First<Model.Receipt>();
         }
     }
 }

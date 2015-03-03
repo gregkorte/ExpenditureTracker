@@ -11,11 +11,10 @@
     <Grid HorizontalAlignment="Center">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         
-        <!--BEGIN >> StartMenu-->
+    <!--BEGIN >> StartMenu-->
         <StackPanel Name="StartMenu" Visibility="Visible" Height="Auto" HorizontalAlignment="Center" Orientation="Horizontal" Margin="10" VerticalAlignment="Center">
             <StackPanel Name="StartMenuLeft" Orientation="Vertical" Margin="10">
                 <Label Content="Add/Edit Receipt" HorizontalAlignment="Center" FontSize="24" Foreground="White"/>
@@ -34,10 +33,10 @@
             </Button>
             </StackPanel>
         </StackPanel>
-        <!--END >> StartMenu-->
+    <!--END >> StartMenu-->
 
-        <!--BEGIN >> AddReceipt-->
-        <StackPanel Visibility="Collapsed" Name="AddReceipt" VerticalAlignment="Center">
+    <!--BEGIN >> AddReceipt-->
+        <StackPanel Visibility="Collapsed" Name="AddReceipt" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Name="AddReceiptHeader" Foreground="White" FontSize="24" HorizontalAlignment="Center">Add A Receipt</Label>
             <StackPanel Name="Form" Orientation="Horizontal">
                 <!--BEGIN >> Column 1-->
@@ -53,7 +52,7 @@
             
                 <!--BEGIN Column 2-->
                 <StackPanel Name="FormInputs" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center" Margin="5">
-                    <DatePicker Name="AddReceiptInputDate" Width="200" Grid.Row="3" Margin="5" />
+                    <DatePicker x:Name="AddReceiptInputDate" Width="200" Grid.Row="3" Margin="5" />
                     <TextBox Name="AddReceiptInputStoreName" Width="200" Grid.Row="4" Margin="5" />
                     <TextBox Name="AddReceiptInputPurchaseType" Width="200" Grid.Row="5" Margin="5" />
                     <TextBox Name="AddReceiptInputSalesTax" Width="200" Grid.Row="6" Margin="5" />
@@ -65,54 +64,76 @@
             </StackPanel>
             <StackPanel Name="AddReceiptButtons" Grid.Row="10" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Name="AddReceiptBackButton" Click="AddReceiptBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
-                <!--<Button Name="AddReceiptResettButton" Click="AddReceiptResetButton_Click" Width="80" Height="30" Content="Reset" Margin="10" Cursor="Hand" />-->
+                <Button Name="AddReceiptGoToListButton" Click="AddReceiptGoToListButton_Click" Width="80" Height="30" Content="Receipt List" Margin="10" Cursor="Hand" />
+                <Button Name="AddReceiptResettButton" Click="AddReceiptResetButton_Click" Width="80" Height="30" Content="Reset" Margin="10" Cursor="Hand" />
                 <Button Name="AddReceiptSubmitButton" Click="AddReceiptSubmitButton_Click" Width="80" Height="30" Content="Add Receipt" Margin="10" Cursor="Hand" />
             </StackPanel>
         </StackPanel>
-        <!--END >> AddReceipt-->
+    <!--END >> AddReceipt-->
 
-        <!--BEGIN >> ViewReceiptList-->
+    <!--BEGIN >> ViewReceiptList-->
         <StackPanel Visibility="Collapsed" Name="ViewReceiptList">
             <Label Name="ListOfReceiptsHeader" Foreground="White" FontSize="24" HorizontalAlignment="Center">Receipt List</Label>
-            <ListBox Name="ListOfReceipts" Width="550" Height="Auto" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalContentAlignment="Left" Background="{x:Null}">
+            <ListBox Name="ListOfReceipts" Width="600" Height="Auto" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalContentAlignment="Left" Background="{x:Null}" SelectionMode="Extended" MouseDoubleClick="SelectViewReceiptListListBoxItem_Click">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center" Width="550" Orientation="Horizontal">
-                            <Label Name="dateLabel" Margin="10,0,0,0">Date: </Label>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding Date, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
-                            <Label Name="storeName" Margin="10,0,0,0">Store: </Label>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding StoreName, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
-                            <Label Name="purchaseType" Margin="10,0,0,0">Type: </Label>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding PurchaseType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
-                            <Label Name="salesTaxLabel" Margin="10,0,0,0">Tax: </Label>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding SalesTax, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
-                            <Label Name="salesTotalLabel" Margin="10,0,0,0">Total: </Label>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding SalesTotal, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
-                            <Label Name="tenderType" Margin="10,0,0,0">Tender: </Label>
-                            <TextBlock VerticalAlignment="Center" Text="{Binding TenderType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="dateLabel" Margin="10,0,0,0" Foreground="White">Date: </Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding Date, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="storeName" Margin="10,0,0,0" Foreground="White">Store: </Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding StoreName, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="purchaseType" Margin="10,0,0,0" Foreground="White">Type: </Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding PurchaseType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="salesTaxLabel" Margin="10,0,0,0" Foreground="White">Tax: </Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding SalesTax, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="salesTotalLabel" Margin="10,0,0,0" Foreground="White">Total: </Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding SalesTotal, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="tenderType" Margin="10,0,0,0" Foreground="White">Tender: </Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding TenderType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Name="ViewReceiptListButtons" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Name="ViewReceiptListBackButton" Click="ViewReceiptListBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
+                <Button Name="ViewReceiptListDeleteButton" Click="ViewReceiptListDeleteButton_Click" HorizontalAlignment="Right" Content="Delete" Cursor="Hand" FontWeight="Bold" Foreground="Red" Width="80" Height="30" Margin="10,0,0,0" Visibility="Collapsed" />
             </StackPanel>
         </StackPanel>
-        <!--END >> ViewReceiptList-->
+    <!--END >> ViewReceiptList-->
         
-        <!--BEGIN >> AddReport-->
+    <!--BEGIN >> AddReport-->
         <StackPanel Visibility="Collapsed" Name="AddReport">
             <StackPanel Name="ReportForm">
                 <Label Name="test2" Foreground="White">This will be a report form.</Label>
             </StackPanel>
+            <ListBox Name="ReceiptTotal" Width="600" Height="Auto" ItemsSource="{Binding NotifyOnSourceUpdated=True}" HorizontalContentAlignment="Left" Background="{x:Null}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel HorizontalAlignment="Center" Width="550" Orientation="Horizontal">
+                            <Label Name="dateLabel" Margin="10,0,0,0" Foreground="White">Date:</Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding Date, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="storeName" Margin="10,0,0,0" Foreground="White">Store:</Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding StoreName, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="purchaseType" Margin="10,0,0,0" Foreground="White">Type:</Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding PurchaseType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="salesTaxLabel" Margin="10,0,0,0" Foreground="White">Tax:</Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding SalesTax, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="salesTotalLabel" Margin="10,0,0,0" Foreground="White">Total:</Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding SalesTotal, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                            <Label Name="tenderType" Margin="10,0,0,0" Foreground="White">Tender:</Label>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="{Binding TenderType, UpdateSourceTrigger=PropertyChanged, NotifyOnSourceUpdated=True}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <StackPanel Name="ReportButtons" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Name="AddReportBackButton" Click="AddReportBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
                 <!--<Button Name="AddReportSubmitButton" Click="AddReportSubmitButton_Click" Width="80" Height="30" Content="Get Report" Margin="10" Cursor="Hand" />-->
             </StackPanel>
         </StackPanel>
-        <!--END >> AddReport-->
+    <!--END >> AddReport-->
         
-        <!--BEGIN >> ViewReport-->
+    <!--BEGIN >> ViewReport-->
         <StackPanel Visibility="Collapsed" Name="ViewReport">
             <StackPanel Name="Report">
                 <Label Name="test3" Foreground="White">This will be a report.</Label>
@@ -121,7 +142,7 @@
                 <Button Name="ViewReportBackButton" Click="ViewReportBackButton_Click" Width="80" Height="30" Content="Back" Margin="10" Cursor="Hand" />
             </StackPanel>
         </StackPanel>
-        <!--END >> ViewReport-->
+    <!--END >> ViewReport-->
         
     </Grid>
 </Window>

@@ -48,10 +48,20 @@ namespace ExpenditureTrackerTesting
         [TestMethod]
         public void ViewReceiptListDeleteButtonClickTest()
         {
-            //GivenThatICanViewTheReceiptList()
-            //AndTheDeleteButtonIsEnabled()
-            //WhenIClickOnADeleteButton()
-            //ThenIShouldNotSeeTheDeletedReceipt()
+            WhenIClickAddReceiptButton();
+            ThenIShouldSeeAddReceiptForm();
+            WhenISelectADate(new DateTime(2015, 02, 14));
+            AndIInputAStoreName("Publix");
+            AndIInputAPurchaseType("Groceries");
+            AndIInputSalesTax(.45);
+            AndIInputSalesTotal(5.45);
+            AndIInputATenderType("Cash");
+            AndIClickAddReceiptSubmitButton();
+            ThenIShouldSeeViewReceiptList();
+            WhenISelectListBoxItem();
+            ThenIShouldSeeViewReceiptListDeleteButton();
+            WhenIClickViewReceiptListDeleteButton();
+            ThenIShouldNotSeeSelectedListBoxItem();
         }
     }
 }

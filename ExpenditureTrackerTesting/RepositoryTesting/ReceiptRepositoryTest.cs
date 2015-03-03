@@ -42,6 +42,18 @@ namespace ExpenditureTrackerTesting.RepositoryTesting
         }
 
         [TestMethod]
+        public void TestDeleteReceiptFromDatabase()
+        {
+            repo.Clear();
+            Assert.AreEqual(0, repo.GetCount());
+            var receipt = new Receipt("12/31/2015", "Publix", "Groceries", .09, 1.09, "Cash");
+            repo.Add(receipt);
+            Assert.AreEqual(1, repo.GetCount());
+            repo.Delete(receipt);
+            Assert.AreEqual(0, repo.GetCount());
+        }
+
+        [TestMethod]
         public void TestAllReceiptMethod()
         {
             repo.Add(new Receipt("12/31/2015", "Publix", "Groceries", .09, 1.09, "Cash"));
